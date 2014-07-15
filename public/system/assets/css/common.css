@@ -66,3 +66,7 @@ footer p {
 .index-register {
     display: block;
 }
+
+.index-edit {
+    display: none;
+}

@@ -10,9 +10,9 @@ angular.module('mean.system').factory('Global', [
             authenticated: false,
             isAdmin: false
         };
-        if (window.user && window.user.roles) {
-            _this._data.authenticated = window.user.roles.length;
-            _this._data.isAdmin = ~window.user.roles.indexOf('admin');
+        if (window.user && window.user.permissions) {
+            _this._data.authenticated = window.user.permissions.length;
+            _this._data.isAdmin = ~window.user.permissions.indexOf('admin');
         }
         return _this._data;
     }

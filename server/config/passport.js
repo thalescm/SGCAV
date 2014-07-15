@@ -73,7 +73,7 @@ module.exports = function(passport) {
                         username: profile.username,
                         provider: 'twitter',
                         twitter: profile._json,
-                        roles: ['authenticated']
+                        permissions: ['authenticated']
                     });
                     user.save(function(err) {
                         if (err) console.log(err);
@@ -106,7 +106,7 @@ module.exports = function(passport) {
                         username: profile.username || profile.emails[0].value.split('@')[0],
                         provider: 'facebook',
                         facebook: profile._json,
-                        roles: ['authenticated']
+                        permissions: ['authenticated']
                     });
                     user.save(function(err) {
                         if (err) console.log(err);
@@ -136,7 +136,7 @@ module.exports = function(passport) {
                         username: profile.username,
                         provider: 'github',
                         github: profile._json,
-                        roles: ['authenticated']
+                        permissions: ['authenticated']
                     });
                     user.save(function(err) {
                         if (err) console.log(err);
@@ -166,7 +166,7 @@ module.exports = function(passport) {
                         username: profile.emails[0].value,
                         provider: 'google',
                         google: profile._json,
-                        roles: ['authenticated']
+                        permissions: ['authenticated']
                     });
                     user.save(function(err) {
                         if (err) console.log(err);
@@ -196,7 +196,7 @@ module.exports = function(passport) {
                         email: profile.emails[0].value,
                         username: profile.emails[0].value,
                         provider: 'linkedin',
-                        roles: ['authenticated']
+                        permissions: ['authenticated']
                     });
                     user.save(function(err) {
                         if (err) console.log(err);

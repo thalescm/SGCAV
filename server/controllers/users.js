@@ -46,20 +46,29 @@ exports.create = function(req, res, next) {
 
     user.provider = 'local';
 
+
+    debugger;
+    console.log(req);
+
     // because we set our user.provider to local our models/user.js validation will always be true
-    req.assert('name', 'You must enter a name').notEmpty();
-    req.assert('email', 'You must enter a valid email address').isEmail();
-    req.assert('password', 'Password must be between 8-20 characters long').len(8, 20);
-    req.assert('username', 'Username cannot be more than 20 characters').len(1,20);
-    req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
+    req.assert('name', 'Por favor, insira um nome').notEmpty();
+    req.assert('email', 'Por favor, insira um e-mail válido').isEmail();
+    req.assert('password', 'Senhas devem ter entre 8-20 caracteres').len(8, 20);
+    req.assert('username', 'O Username deve ser menor que 20 caracteres').len(1,20);
+    req.assert('confirmPassword', 'As senhas não são iguais').equals(req.body.password);
+    req.assert('role', 'Defina o tipo de usuário a ser criado').notEmpty();
 
     var errors = req.validationErrors();
     if (errors) {
         return res.status(400).send(errors);
     }
 
-    // Hard coded for now. Will address this with the user permissions system in v0.3.5
-    user.roles = ['authenticated'];
+    if (user.role === 'adm') {
+        user.permissions = ['register', 'create-report', 'create-recursos'];
+    } else if (user.role === 'policial' || user.role === 'bombeiro') {
+        user.permissions = ['create-cenario', 'atualizar-missao'];
+    }
+
     user.save(function(err) {
         if (err) {
             switch (err.code) {
@@ -80,6 +89,19 @@ exports.create = function(req, res, next) {
         res.status(200);
     });
 };
+
+/**
+ * Edit user
+ */
+exports.edit = function(req, res, next) {
+    req.assert('username', 'O Username deve ser menor que 20 caracteres').len(1,20);
+    debugger;
+
+    User.find({ username: req.username }, function(user) {
+        console.log(user);
+    });
+};
+
 /**
  * Send User
  */

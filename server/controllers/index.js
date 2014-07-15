@@ -16,7 +16,7 @@ exports.render = function(req, res) {
     }
 
     function isAdmin() {
-        return req.user && req.user.roles.indexOf('admin') !== -1;
+        return req.user && req.user.permissions.indexOf('admin') !== -1;
     }
 
     // Send some basic starting info to the view
@@ -25,7 +25,7 @@ exports.render = function(req, res) {
             name: req.user.name,
             _id: req.user._id,
             username: req.user.username,
-            roles: req.user.roles
+            permissions: req.user.permissions
         } : {},
         modules: modules,
         isAdmin: isAdmin,

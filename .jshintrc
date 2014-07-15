@@ -20,6 +20,7 @@
     "globals": { // Globals variables.
         "angular": true
     },
+    "debug": true,
     "predef": [ // Extra globals.
         "define",
         "require",
