@@ -46,8 +46,6 @@ exports.create = function(req, res, next) {
 
     user.provider = 'local';
 
-
-    debugger;
     console.log(req);
 
     // because we set our user.provider to local our models/user.js validation will always be true
@@ -100,6 +98,30 @@ exports.edit = function(req, res, next) {
     User.find({ username: req.username }, function(user) {
         console.log(user);
     });
+
+    res.status(200);
+};
+
+/**
+ * Check Password
+ */
+exports.authenticate = function(req, res, next) {
+    req.assert('password', 'Senhas devem ter entre 8-20 caracteres').len(8, 20);
+
+    var errors = req.validationErrors();
+    if (errors) {
+        res.status(400).send(errors);
+    }
+
+    console.log('req.password: ' + req.password);
+
+    if (req.user.authenticate(req.password)) {
+        res.status(200).send();
+    } else {
+        res.status(400).send('Senha inválida');
+    }
+
+    res.status(200).send();
 };
 
 /**

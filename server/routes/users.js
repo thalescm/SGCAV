@@ -19,6 +19,9 @@ module.exports = function(app, passport) {
     app.route('/edit')
         .post(users.edit);
 
+    app.route('/authenticate')
+        .post(users.authenticate);
+
     // Setting up the userId param
     app.param('userId', users.user);
 

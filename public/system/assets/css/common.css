@@ -68,5 +68,14 @@ footer p {
 }
 
 .index-edit {
-    display: none;
+    display: block;
+}
+
+.form-item-description{
+    color: #d3d3d3;
+    font-size: 10px;
+}
+
+.form-item-box {
+    padding: 0 20px 20px 20px;
 }

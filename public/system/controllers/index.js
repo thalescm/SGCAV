@@ -36,8 +36,6 @@ angular.module('mean.system').controller('IndexController',
     };
 
     $scope.editar = function (ev) {
-
-      debugger;
       $http.post('/edit', $scope.user)
                     .success(function() {
                         // authentication OK
@@ -64,6 +62,10 @@ angular.module('mean.system').controller('IndexController',
     $scope.cadastroTapped = function () {
       document.getElementsByClassName('index-edit').css('display', 'none');
       document.getElementsByClassName('index-register').css('display', 'block');
+    };
+
+    $scope.novoAcidente = function() {
+        $location.url('/acidente/create');
     };
 
 }]);

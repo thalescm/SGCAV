@@ -65,4 +65,47 @@ angular.module('mean.controllers.login', [])
                     });
             };
         }
+    ])
+    .controller('EditCtrl', ['$scope', '$rootScope', '$http', '$location',
+        function($scope, $rootScope, $http, $location) {
+            $scope.user = $rootScope.user;
+
+            $scope.confirmarSenha = function (ev) {
+
+                debugger;
+
+                $http.post('/authenticate', 
+                    { 
+                     password: $scope.password,
+                     user: $scope.user
+                    })
+                    .success(function() {
+                        debugger;
+                    })
+                    .error(function(error) {
+                        debugger;
+                        $scope.passwordError = error;
+                    });
+            };
+
+
+            // $http.post('/edit', $scope.user)
+            //         .success(function() {
+            //             debugger
+            //             // authentication OK
+            //             $scope.registerError = 0;
+            //             $rootScope.user = $scope.user;
+            //             $rootScope.$emit('loggedin');
+            //             $location.url('/');
+            //         })
+            //         .error(function(error) {
+            //             debugger
+            //             // Error: authentication failed
+            //             if (error === 'Username already taken') {
+            //                 $scope.usernameError = error;
+            //             } else {
+            //                 $scope.registerError = error;
+            //             }
+            //         });
+        }
     ]);

@@ -1,0 +1,113 @@
+<section data-ng-controller="NovoAcidenteCtrl">
+  <div ng-repeat="error in acidenteError">
+        <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
+    </div>
+
+    <h1>Cadastro de um acidente</h1>
+    <form ng-submit="cadastrar()" class="signup form-horizontal">
+
+        <h3>Endereço</h3>
+        <div class="form-item-box">
+          <div class="form-group">
+              <label for="rua" class="col-md-4 control-label">Rua</label>
+              <div class="col-md-2">
+                  <input id="rua" type="text" name="rua" placeholder="Rua" class="form-control" ng-model="acidente.endereco.rua"/>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="complemento" class="col-md-4 control-label">Complemento</label>
+              <div class="col-md-2">
+                  <input id="complemento" type="text" name="complemento" placeholder="complemento" class="form-control" ng-model="acidente.endereco.complemento"/>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="bairro" class="col-md-4 control-label">Bairro</label>
+              <div class="col-md-2">
+                  <input id="bairro" type="text" name="bairro" placeholder="bairro" class="form-control" ng-model="acidente.endereco.bairro"/>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="cidade" class="col-md-4 control-label">Cidade</label>
+              <div class="col-md-2">
+                  <input id="cidade" type="text" name="cidade" placeholder="Cidade" class="form-control" ng-model="acidente.endereco.cidade"/>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="estado" class="col-md-4 control-label">Estado</label>
+              <div class="col-md-2">
+                  <select class="form-control" ng-model="acidente.endereco.estado">
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará </option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+        </div>
+
+        <h3>Descricao e dados</h3>
+        <div class="form-item-box">
+
+          <div class="form-group">
+              <label for="descricao" class="col-md-4 control-label">Descrição do Acidente</label>
+              <div class="col-md-8">
+                  <input id="descricao" type="text" name="descricao" placeholder="Descrição" class="form-control" ng-model="acidente.descricao"/>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="veiculos" class="col-md-4 control-label">Número de Veículos</label>
+              <div class="col-md-8">
+                  <input id="veiculos" type="number" name="veiculos" placeholder="Número de veículos" class="form-control" ng-model="acidente.numVeiculos"/>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="vitimas" class="col-md-4 control-label">Número de Vitimas</label>
+              <div class="col-md-8">
+                  <input id="vitimas" type="number" name="vitimas" placeholder="Número de vítimas" class="form-control" ng-model="acidente.numVitimas"/>
+                  <div class="form-item-description"> Obrigatório</div>
+              </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <button type="submit" class="btn btn-primary">Cadastrar Acidente</button>
+            </div>
+        </div>
+    </form>
+</section>
