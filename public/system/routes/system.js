@@ -16,14 +16,18 @@ angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
                 .state('auth', {
                     templateUrl: 'public/auth/views/index.html'
                 })
-                .state('acidente.create', {
-                    url: '#!/acidente/create',
+                .state('acidentecreate', {
+                    url: '/acidente/create',
                     templateUrl: 'public/system/views/acidente/create.html'
+                })
+                .state('acidenteedit', {
+                    url: '/acidente/edit/:idAcidente',
+                    templateUrl: 'public/system/views/acidente/edit.html'
+                })
+
+                .state('acidenteshow', {
+                    url: '/acidente/show/:idAcidente',
+                    templateUrl: 'public/system/views/acidente/show.html'
                 });
-        }
-    ])
-    .config(['$locationProvider',
-        function($locationProvider) {
-            $locationProvider.hashPrefix('!');
         }
     ]);

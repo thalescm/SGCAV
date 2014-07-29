@@ -11,6 +11,9 @@ module.exports = function(app, passport) {
     // app.route('/acidentes/edit')
     //     .post(acidentes.edit);
 
+    app.route('/acidente/get')
+        .get(acidentes.findById);
+
     app.route('/acidentes/create')
         .post(acidentes.create);
 

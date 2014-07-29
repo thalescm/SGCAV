@@ -28,7 +28,7 @@ angular.module('mean.system').controller('NovoAcidenteCtrl',
          idAcidente: 0
         })
         .success(function(response) {
-            $location.url('/acidente/edit:' + response.idAcidente);
+            $location.path('/acidente/edit/' + response.idAcidente);
         })
         .error(function(error) {
             $scope.acidenteError = error;

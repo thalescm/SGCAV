@@ -65,7 +65,7 @@ angular.module('mean.system').controller('IndexController',
     };
 
     $scope.novoAcidente = function() {
-        $location.url('/acidente/create');
+        $location.path('acidente/create');
     };
 
 }]);

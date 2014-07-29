@@ -19,7 +19,8 @@
                 "public/*/*.js",
                 "public/*/{controllers,routes,services}/*.js",
                 "public/system/controllers/acidente/create.js",
-                "public/system/controllers/acidente/edit.js"
+                "public/system/controllers/acidente/edit.js",
+                "public/system/controllers/acidente/show.js"
             ]
         }
     }

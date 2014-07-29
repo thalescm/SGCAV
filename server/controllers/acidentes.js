@@ -71,16 +71,16 @@ exports.me = function(req, res) {
 /**
  * Find acidente by idAcidente
  */
-exports.findById = function(req, res, next, id) {
+exports.findById = function(req, res) {
     Acidente
         .findOne({
-            idAcidente: id
+            idAcidente: req.body.idAcidente
         })
         .exec(function(err, acidente) {
-            if (err) return next(err);
-            if (!acidente) return next(new Error('Failed to load Acidente ' + id));
+            if (err) res.status(400).send(err);
+            if (!acidente) return res.status(400).send('Acidente não encontrado');
             req.profile = acidente;
-            next();
+            return res.status(200).send({acidente: acidente});
         });
 };
 
